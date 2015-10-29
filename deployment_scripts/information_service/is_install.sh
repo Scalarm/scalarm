@@ -16,8 +16,10 @@ else
   req "RVM installation" \
 	  "\\curl -sSL https://get.rvm.io | bash -s stable --ruby=2.1"
 	req "RVM first load" \
-	  "source /etc/profile.d/rvm.sh"
+	  "source /home/$USER/.rvm/scripts/rvm"
 fi
+
+cd $HOME
 
 req "Cloning scalarm_information_service" \
   "git clone https://github.com/Scalarm/scalarm_information_service"
