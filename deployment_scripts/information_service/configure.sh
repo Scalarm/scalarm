@@ -25,17 +25,20 @@ EOS
 export REPO_BASE_URL='http://scalarm.com/repository/'
 export RAILS_ENV=production
 
+cd $SCALARM_ROOT
 cd scalarm_information_service
 
 create_secrets_yml
 create_thin_yml
 
-req "Creating SSL key" \
-  "openssl genrsa -out config/server.key 2048"
-req "Crearting SSL CSR" \
-  "openssl req -new -key config/server.key -out config/server.csr -nodes -subj '/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com'"
-req "Creating SSL certificate" \
-  "openssl x509 -req -days 365 -in config/server.csr -signkey config/server.key -out config/server.crt"
+info "Creating SSL key"
+execute openssl genrsa -out config/server.key 2048
 
-req "Migrating database" \
-  "rake db:migrate"
+info "Crearting SSL CSR"
+execute openssl req -new -key config/server.key -out config/server.csr -nodes -subj '/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com'
+
+info "Creating SSL certificate"
+execute openssl x509 -req -days 365 -in config/server.csr -signkey config/server.key -out config/server.crt
+
+info "Migrating database"
+execute rake db:migrate
