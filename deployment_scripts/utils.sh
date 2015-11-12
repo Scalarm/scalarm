@@ -41,3 +41,6 @@ export SCRIPT_PATH=$( cd $(dirname $0) ; pwd -P )
 
 # If SCALARM_ROOT not set, use HOME dir
 [ -n "$SCALARM_ROOT" ] || export SCALARM_ROOT=$HOME
+
+# If GIT_BRANCH not set, use master
+[ -n "$GIT_BRANCH" ] || export GIT_BRANCH=master

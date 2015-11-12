@@ -1,4 +1,5 @@
 #!/bin/bash
 source `dirname $0`/../utils.sh
 
-rm -rf scalarm_information_service
+info "Removing Storage Manager dir"
+execute rm -rf $SCALARM_ROOT/scalarm_storage_manager
