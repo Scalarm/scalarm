@@ -29,5 +29,8 @@ execute git clone https://github.com/Scalarm/scalarm_information_service
 
 cd scalarm_information_service
 
+info "Checking out $GIT_BRANCH branch"
+execute git checkout $GIT_BRANCH
+
 info "Installing gems"
 execute bundle install
