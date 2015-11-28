@@ -22,12 +22,14 @@ else
   source /home/$USER/.rvm/scripts/rvm
 fi
 
-cd $SCALARM_ROOT
+info "Go to SCALARM_ROOT"
+execute cd $SCALARM_ROOT
 
 info "Cloning scalarm_information_service"
 execute git clone https://github.com/Scalarm/scalarm_information_service
 
-cd scalarm_information_service
+info "Go to Information Service dir"
+execute cd $SCALARM_ROOT/scalarm_information_service
 
 info "Checking out $GIT_BRANCH branch"
 execute git checkout $GIT_BRANCH

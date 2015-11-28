@@ -8,4 +8,4 @@ info "Entering Information Service dir"
 execute cd $SCALARM_ROOT/scalarm_information_service
 
 info "Stopping information_service"
-execute rake service:stop
+execute_optional rake service:stop

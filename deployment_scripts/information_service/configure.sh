@@ -25,8 +25,8 @@ EOS
 export REPO_BASE_URL='http://scalarm.com/repository/'
 export RAILS_ENV=production
 
-cd $SCALARM_ROOT
-cd scalarm_information_service
+info "Go to Information Service dir: $SCALARM_ROOT/scalarm_information_service"
+execute cd $SCALARM_ROOT/scalarm_information_service
 
 create_secrets_yml
 create_thin_yml
