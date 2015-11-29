@@ -16,7 +16,7 @@ execute cd $SCALARM_ROOT/scalarm_storage_manager
 info "Starting Storage Manager (with single MongoDB instance)"
 execute rake service:start_single
 
-info "Wating few seconds for SM to settle down..."
+info "Wating few seconds for Storage Manager to settle down..."
 execute sleep 5
 
 info "Checking if Storage Manager is working"

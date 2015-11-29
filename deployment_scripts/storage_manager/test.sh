@@ -2,4 +2,4 @@
 source `dirname $0`/../utils.sh
 
 info "Checking if Storage Manager log_bank is responding"
-execute `dirname $0`/../check_status.sh localhost:20000 storage
+execute $SCRIPT_PATH/../check_status.sh $PUBLIC_LOG_BANK_ADDRESS storage

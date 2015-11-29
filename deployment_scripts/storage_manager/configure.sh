@@ -30,14 +30,8 @@ export RAILS_ENV=production
 info "Entering scalarm_storage_manager dir"
 execute cd $SCALARM_ROOT/scalarm_storage_manager
 
-info "Creating SSL key"
-execute openssl genrsa -out config/server.key 2048
-
-info "Crearting SSL CSR"
-execute openssl req -new -key config/server.key -out config/server.csr -nodes -subj '/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com'
-
-info "Creating SSL certificate"
-execute openssl x509 -req -days 365 -in config/server.csr -signkey config/server.key -out config/server.crt
+info "Generating self-signed SSL certificate"
+execute $SCRIPT_PATH/../generate_ssl_certificate.sh config/
 
 info "Copying sample configuration files"
 execute rake service:ensure_config

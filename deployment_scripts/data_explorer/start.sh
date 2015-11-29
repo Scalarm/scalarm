@@ -10,27 +10,23 @@ export RAILS_ENV=production
 [ -n $SECRET_KEY_BASE ] || export SECRET_KEY_BASE=dfjeiwu38r782781j38nx9
 [ -n $DB_SECRET_KEY ] || export SECRET_KEY_BASE=zxcg6as7d7qh29d5f6fdsa
 
-info "Go to Experiment Manager direcotry"
-execute cd $SCALARM_ROOT/scalarm_experiment_manager
+info "Go to Data Explorer direcotry"
+execute cd $SCALARM_ROOT/scalarm_data_explorer
 
 info "Precompiling assets"
 execute rake service:non_digested
 
-# TODO: configure user name and password
-info "Creating Scalarm user: scalarm"
-execute rails r $SCRIPT_PATH/ruby_scripts/create_user.rb
-
-info "Starting Experiment Manager"
+info "Starting Data Explorer"
 execute rake service:start
 
 info "Wating few seconds for Data Explorer to settle down..."
 execute sleep 5
 
-info "Checking if Experiment Manager is working"
+info "Checking if Data Explorer is working"
 execute $SCRIPT_PATH/test.sh
 
 # If PUBLIC_EXPERIMENT_MANAGER_ADDRESS not set, use localhost
-[ -n "$PUBLIC_EXPERIMENT_MANAGER_ADDRESS" ] || export PUBLIC_EXPERIMENT_MANAGER_ADDRESS=localhost:3001
+[ -n "$PUBLIC_DATA_EXPLORER_ADDRESS" ] || export PUBLIC_DATA_EXPLORER_ADDRESS=localhost:25000
 
-info "Registering Experiment Manager in Information Service (using public address: $PUBLIC_EXPERIMENT_MANAGER_ADDRESS)"
-execute $SCRIPT_PATH/../register_service.sh experiment_managers $PUBLIC_EXPERIMENT_MANAGER_ADDRESS
+info "Registering Data Explorer in Information Service (using public address: $PUBLIC_DATA_EXPLORER_ADDRESS)"
+execute $SCRIPT_PATH/../register_service.sh data_explorers $PUBLIC_DATA_EXPLORER_ADDRESS
