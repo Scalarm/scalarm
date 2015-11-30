@@ -7,8 +7,6 @@ production:
   secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
   service_login: <%= ENV["INFORMATION_SERVICE_LOGIN"] %>
   service_password: <%= ENV["INFORMATION_SERVICE_PASSWORD"] %>
-  service_crt: ./config/server.crt
-  service_key: ./config/server.key
 EOS
 }
 
@@ -16,7 +14,7 @@ create_thin_yml() {
   cat >config/thin.yml <<EOS
 pid: tmp/pids/thin.pid
 log: log/thin.log
-port: 11300
+socket: /tmp/scalarm_information_service.sock
 tag: ScalarmInformationService
 EOS
 }
@@ -31,8 +29,8 @@ execute cd $SCALARM_ROOT/scalarm_information_service
 create_secrets_yml
 create_thin_yml
 
-info "Generating self-signed SSL certificate"
-execute $SCRIPT_PATH/../generate_ssl_certificate.sh config/
+# info "Generating self-signed SSL certificate"
+# execute $SCRIPT_PATH/../generate_ssl_certificate.sh config/
 
 info "Migrating database"
 execute rake db:migrate

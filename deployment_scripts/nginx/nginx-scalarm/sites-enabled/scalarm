@@ -1,0 +1,79 @@
+upstream scalarm_information_service {
+  server unix:/tmp/scalarm_information_service.sock;
+}
+upstream scalarm_storage_manager {
+  server unix:/tmp/scalarm_storage_manager.sock;
+}
+upstream scalarm_experiment_manager {
+  server unix:/tmp/scalarm_experiment_manager.sock;
+}
+upstream scalarm_data_explorer {
+  server unix:/tmp/scalarm_data_explorer.sock;
+}
+upstream scalarm_pathfinder {
+  server unix:/tmp/scalarm_pathfinder.sock;
+}
+
+server {
+  listen 443 ssl default_server;
+
+  client_max_body_size 0;
+
+  ssl_certificate server.crt;
+  ssl_certificate_key server.key;
+  ssl_session_timeout 30m;
+
+  location /information {
+    proxy_pass http://scalarm_information_service;
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-Proto https; # New header for SSL
+
+    rewrite ^/information(.*)$ $1 break;
+  }
+
+  location /storage {
+    proxy_pass http://scalarm_storage_manager;
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-Proto https; # New header for SSL
+
+    rewrite ^/storage(.*)$ $1 break;
+  }
+
+  location /data_explorer {
+    proxy_pass http://scalarm_data_explorer;
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-Proto https; # New header for SSL
+
+    rewrite ^/data_explorer(.*)$ $1 break;
+  }
+
+  location /pathfinder {
+    proxy_pass http://scalarm_pathfinder;
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-Proto https; # New header for SSL
+
+    rewrite ^/pathfinder(.*)$ $1 break;
+  }
+
+  # TODO: assets
+
+  # Experiment manager - the rest
+  location / {
+    proxy_pass http://scalarm_experiment_manager;
+
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-Proto https; # New header for SSL
+
+    break;
+  }
+}

@@ -1,7 +1,13 @@
 #!/bin/bash
 source `dirname $0`/utils.sh
 
+should_be_set PUBLIC_NGINX_ADDRESS
+
 execute cd $SCRIPT_PATH
+
+execute nginx/install.sh
+execute nginx/configure.sh
+execute nginx/start.sh
 
 execute information_service/install.sh
 execute storage_manager/install.sh

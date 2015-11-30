@@ -10,10 +10,10 @@ info "Packages installation"
 execute sudo apt-get install -y curl git sysstat
 
 info "Installing dependencies for supervisor: Sensitivity Analysis R"
-execute sudo apt-get install r-base-core
+execute sudo apt-get install -y r-base-core
 
 info "Installing dependencies for supervisor: Sensitivity Analysis C#"
-execute sudo apt-get install mono-runtime
+execute sudo apt-get install -y mono-runtime
 
 info "Installing dependencies for supervisor: Response Surface Method"
 execute sudo apt-get install -y python2.7 python-setuptools python-dev python-numpy python-scipy python-pandas python-statsmodels
