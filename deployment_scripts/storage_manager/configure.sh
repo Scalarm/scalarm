@@ -15,7 +15,8 @@ create_thin_yml() {
   cat >config/thin.yml <<EOS
 pid: tmp/pids/thin.pid
 log: log/thin.log
-socket: /tmp/scalarm_information_service.sock
+socket: /tmp/scalarm_storage_manager.sock
+tag: ScalarmStorageManager
 EOS
 }
 
