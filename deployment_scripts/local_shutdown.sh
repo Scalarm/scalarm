@@ -14,3 +14,6 @@ execute_optional data_explorer/delete.sh
 execute_optional experiment_manager/delete.sh
 execute_optional storage_manager/delete.sh
 execute_optional information_service/delete.sh
+
+execute_optional nginx/stop.sh
+execute_optional nginx/delete.sh

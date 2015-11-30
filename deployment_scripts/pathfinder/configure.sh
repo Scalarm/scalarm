@@ -26,7 +26,7 @@ create_puma_rb() {
   cat >config/puma.rb <<EOS
 environment 'production'
 daemonize
-bind 'ssl://0.0.0.0:21000?key=./config/server.key&cert=./config/server.crt'
+bind 'unix:/tmp/scalarm_pathfinder.sock'
 stdout_redirect 'log/puma.log', 'log/puma.log.err', true
 pidfile 'puma.pid'
 threads 1,5
@@ -40,8 +40,8 @@ export RAILS_ENV=production
 info "Entering scalarm_experiment_supervisor dir"
 execute cd $SCALARM_ROOT/scalarm_experiment_supervisor
 
-info "Generating self-signed SSL certificate"
-execute $SCRIPT_PATH/../generate_ssl_certificate.sh config/
+# info "Generating self-signed SSL certificate"
+# execute $SCRIPT_PATH/../generate_ssl_certificate.sh config/
 
 info "Copying sample configuration files"
 execute rake service:ensure_config

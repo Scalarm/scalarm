@@ -29,8 +29,7 @@ execute sleep 5
 info "Checking if Experiment Manager is working"
 execute $SCRIPT_PATH/test.sh
 
-# If PUBLIC_EXPERIMENT_MANAGER_ADDRESS not set, use localhost
-[ -n "$PUBLIC_EXPERIMENT_MANAGER_ADDRESS" ] || export PUBLIC_EXPERIMENT_MANAGER_ADDRESS=localhost:3001
+$PUBLIC_PATHFINDER_ADDRESS=$PUBLIC_NGINX_ADDRESS
 
 info "Registering Experiment Manager in Information Service (using public address: $PUBLIC_EXPERIMENT_MANAGER_ADDRESS)"
 execute $SCRIPT_PATH/../register_service.sh experiment_managers $PUBLIC_EXPERIMENT_MANAGER_ADDRESS

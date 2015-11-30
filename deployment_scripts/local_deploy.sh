@@ -3,6 +3,10 @@ source `dirname $0`/utils.sh
 
 execute cd $SCRIPT_PATH
 
+execute nginx/install.sh
+execute nginx/configure.sh
+execute nginx/start.sh
+
 execute information_service/install.sh
 execute storage_manager/install.sh
 execute experiment_manager/install.sh

@@ -22,8 +22,7 @@ execute sleep 5
 info "Checking if Storage Manager is working"
 execute $SCRIPT_PATH/test.sh
 
-# If PUBLIC_LOG_BANK_ADDRESS not set, use localhost
-[ -n "$PUBLIC_LOG_BANK_ADDRESS" ] || export PUBLIC_LOG_BANK_ADDRESS=localhost:20000
+$PUBLIC_PATHFINDER_ADDRESS=$PUBLIC_NGINX_ADDRESS/storage
 
 info "Registering log_bank in Information Service (using public address: $PUBLIC_LOG_BANK_ADDRESS)"
 execute $SCRIPT_PATH/../register_service.sh storage_managers $PUBLIC_LOG_BANK_ADDRESS
