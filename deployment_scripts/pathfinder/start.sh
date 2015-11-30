@@ -22,7 +22,7 @@ execute sleep 5
 info "Checking if Pathfinder is working"
 execute $SCRIPT_PATH/test.sh
 
-$PUBLIC_PATHFINDER_ADDRESS=$PUBLIC_NGINX_ADDRESS/pathfinder
+PUBLIC_PATHFINDER_ADDRESS=$PUBLIC_NGINX_ADDRESS/pathfinder
 
 info "Registering Pathfinder in Information Service (using public address: $PUBLIC_PATHFINDER_ADDRESS)"
 execute $SCRIPT_PATH/../register_service.sh experiment_supervisors $PUBLIC_PATHFINDER_ADDRESS

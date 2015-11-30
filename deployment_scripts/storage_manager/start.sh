@@ -22,7 +22,7 @@ execute sleep 5
 info "Checking if Storage Manager is working"
 execute $SCRIPT_PATH/test.sh
 
-$PUBLIC_PATHFINDER_ADDRESS=$PUBLIC_NGINX_ADDRESS/storage
+PUBLIC_LOG_BANK_ADDRESS=$PUBLIC_NGINX_ADDRESS/storage
 
 info "Registering log_bank in Information Service (using public address: $PUBLIC_LOG_BANK_ADDRESS)"
 execute $SCRIPT_PATH/../register_service.sh storage_managers $PUBLIC_LOG_BANK_ADDRESS
