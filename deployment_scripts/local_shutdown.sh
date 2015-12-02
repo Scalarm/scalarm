@@ -1,6 +1,8 @@
 #!/bin/bash
 source `dirname $0`/utils.sh
 
+should_be_set PUBLIC_NGINX_ADDRESS
+
 execute cd $SCRIPT_PATH
 
 execute_optional pathfinder/stop.sh
