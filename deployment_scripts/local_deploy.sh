@@ -1,10 +1,6 @@
 #!/bin/bash
 source `dirname $0`/utils.sh
 
-[ -n "$PUBLIC_NGINX_ADDRESS" ] || export PUBLIC_NGINX_ADDRESS=localhost
-
-should_be_set PUBLIC_NGINX_ADDRESS
-
 execute cd $SCRIPT_PATH
 
 execute nginx/install.sh
