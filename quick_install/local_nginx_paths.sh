@@ -2,6 +2,7 @@
 
 mkdir -p $HOME/.scalarm
 cd $HOME/.scalarm
-wget https://github.com/Scalarm/scalarm/archive/scalarm-master.tar.gz
-tar -zxvf scalarm-master.tar.gz
+rm -r master.tar.gz scalarm-master
+wget https://github.com/Scalarm/scalarm/archive/master.tar.gz
+tar -zxvf master.tar.gz
 scalarm-master/deployment_scripts/local_deploy.sh
