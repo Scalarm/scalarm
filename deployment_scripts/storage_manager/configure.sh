@@ -10,9 +10,6 @@ production:
   information_service_url: "<%= ENV["INFORMATION_SERVICE_URL"] %>"
   information_service_user: "<%= ENV["INFORMATION_SERVICE_LOGIN"] %>"
   information_service_pass: "<%= ENV["INFORMATION_SERVICE_PASSWORD"] %>"
-  database:
-    db_name: 'scalarm_db'
-    db_secret_key: "<%= ENV["DB_SECRET_KEY"] %>"
 EOS
 }
 
@@ -21,6 +18,7 @@ create_thin_yml() {
 pid: tmp/pids/thin.pid
 log: log/thin.log
 port: 20000
+tag: ScalarmStorageManager
 EOS
 }
 

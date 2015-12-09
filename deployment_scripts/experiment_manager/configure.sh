@@ -19,7 +19,7 @@ bind 'ssl://0.0.0.0:3001?key=./config/server.key&cert=./config/server.crt'
 stdout_redirect 'log/puma.log', 'log/puma.log.err', true
 pidfile 'puma.pid'
 threads 1,5
-workers 2
+workers 1
 EOS
 }
 

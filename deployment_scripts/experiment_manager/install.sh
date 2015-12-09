@@ -20,7 +20,8 @@ info "GSISSH installation - installing gsi-openssh-clients"
 execute sudo apt-get update
 execute sudo apt-get install gsi-openssh-clients libglobus-gssapi-gsi4
 
-# TODO: /etc/grid-security/certificates
+info "Installing PLGrid certificates (for gsissh)"
+execute $SCRIPT_PATH/../install_plgrid_certs.sh
 
 info "Installing Ruby from RVM"
 execute $SCRIPT_PATH/../install_rvm.sh
