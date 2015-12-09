@@ -53,7 +53,7 @@ should_be_set INFORMATION_SERVICE_PASSWORD
 should_be_set SECRET_KEY_BASE
 should_be_set GIT_BRANCH
 should_be_set RAILS_ENV
-should_be_set PUBLIC_NGINX_ADDRESS
+# should_be_set PUBLIC_NGINX_ADDRESS
 
 
 ## Helper functions
