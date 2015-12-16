@@ -19,7 +19,7 @@ execute sudo dpkg -i /tmp/globus-toolkit-repo_latest_all.deb && rm /tmp/globus-t
 
 info "GSISSH installation - installing gsi-openssh-clients"
 execute sudo apt-get update
-execute sudo apt-get install gsi-openssh-clients libglobus-gssapi-gsi4
+execute sudo apt-get install -y gsi-openssh-clients libglobus-gssapi-gsi4
 
 info "Installing PLGrid certificates (for gsissh)"
 execute $SCRIPT_PATH/../install_plgrid_certs.sh
