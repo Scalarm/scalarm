@@ -6,6 +6,7 @@ export REPO_BASE_URL='http://scalarm.com/repository/'
 export RAILS_ENV=production
 
 info "Packages installation"
+execute sudo apt-get update
 execute sudo apt-get install -y curl git
 
 info "Installing Ruby from RVM"

@@ -5,6 +5,7 @@ source `dirname $0`/../utils.sh
 export RAILS_ENV=production
 
 info "Packages installation"
+execute sudo apt-get update
 execute sudo apt-get install -y curl zip git sysstat r-base-core
 
 info "Go to SCALARM_ROOT: $SCALARM_ROOT"
