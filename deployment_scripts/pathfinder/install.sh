@@ -7,6 +7,7 @@ export RAILS_ENV=production
 # TODO: each supervisor should have install_dependencies_ubuntu.sh script
 
 info "Packages installation"
+execute sudo apt-get update
 execute sudo apt-get install -y curl git sysstat
 
 info "Installing dependencies for supervisor: Sensitivity Analysis R"
