@@ -3,7 +3,9 @@ Read wiki at: https://github.com/Scalarm/scalarm/wiki
 
 # Quick installation
 
-*Warning:* this will need sudo permissions (preferably password-less sudo) and will install new system packages
+**Important:** currently the script has problems with automatic RVM/Ruby install. Please install Ruby manually before using the script, instructions: http://rvm.io/
+
+**Warning:** this will need sudo permissions (preferably password-less sudo) and will install new system packages
 
 Localhost-only installation on Ubuntu 14.04+ in HOME dir:
 ```
