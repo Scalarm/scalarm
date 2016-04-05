@@ -6,7 +6,7 @@ then
   info "Ruby already installed: $(ruby --version)"
 else
   info "Adding ppa:brightbox/ruby-ng repository"
-  execute sudo apt-get -y install python-software-properties software-properties-common
+  execute sudo apt-get -y install software-properties-common
   execute sudo add-apt-repository -y ppa:brightbox/ruby-ng
   execute sudo apt-get update
 
