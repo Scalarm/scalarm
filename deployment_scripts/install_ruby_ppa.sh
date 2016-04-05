@@ -11,7 +11,7 @@ else
   execute sudo apt-get update
 
   info "Installing ruby from ppa:brightbox/ruby-ng repository"
-  execute sudo apt-get install
+  execute sudo apt-get install ruby2.1 ruby2.1-dev
 
   info "Checking installed ruby version"
   execute ruby --version
