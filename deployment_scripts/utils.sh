@@ -98,3 +98,4 @@ trim_string() {
 }
 
 [ -e $HOME/.rvm/scripts/rvm ] && execute source $HOME/.rvm/scripts/rvm
+[ -e /usr/local/rvm/scripts/rvm ] && execute source /usr/local/rvm/scripts/rvm

@@ -12,5 +12,9 @@ else
   execute eval "bash -c 'curl -sSL https://get.rvm.io | bash -s stable --ruby=2.1'"
 
   info "RVM first load"
-  execute source $HOME/.rvm/scripts/rvm
+  [ -e $HOME/.rvm/scripts/rvm ] && execute source $HOME/.rvm/scripts/rvm || echo "No RVM in HOME"
+  [ -e /usr/local/rvm/scripts/rvm ] && execute source /usr/local/rvm/scripts/rvm || echo "No RVM in /usr/local"
+
+  info "Check if ruby is installed"
+  execute ruby --version
 fi
