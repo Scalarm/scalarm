@@ -7,6 +7,19 @@
 
 export SCRIPT_PATH=$( cd $(dirname $0) ; pwd -P )
 
+## Removes leading whitespaces, e.g.: "  xczc" to be "xczc"
+# $1 - a string
+# prints the string
+trim_string() {
+  VAL=$1
+  echo -e "${VAL}" | sed -e 's/^[[:space:]]*//'
+}
+
+strip_address_to_host() {
+  VAL=$1
+  echo "${VAL}" | cut -d ':' -f 1
+}
+
 # If SCALARM_ROOT not set, use HOME dir
 [ -n "$SCALARM_ROOT" ] || export SCALARM_ROOT=$HOME
 
@@ -91,19 +104,6 @@ execute_optional() {
     echo -e "\033[1;31mERROR: Command failed: ${CMD}\033[0m"
     [ "$MSG" != "" ] && echo -e "\033[1;33mLast message: ${MSG}\033[0m"
   fi
-}
-
-## Removes leading whitespaces, e.g.: "  xczc" to be "xczc"
-# $1 - a string
-# prints the string
-trim_string() {
-  VAL=$1
-  echo -e "${VAL}" | sed -e 's/^[[:space:]]*//'
-}
-
-strip_address_to_host() {
-  VAL=$1
-  echo "${VAL}" | cut -d ':' -f 1
 }
 
 [ -e $HOME/.rvm/scripts/rvm ] && execute source $HOME/.rvm/scripts/rvm

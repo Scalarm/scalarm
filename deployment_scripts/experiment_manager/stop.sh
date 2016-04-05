@@ -11,4 +11,4 @@ info "Stopping Experiment Manager"
 execute_optional rake service:stop
 
 info "Deregistering Experiment Manager from Information Service (using public address: $PUBLIC_EXPERIMENT_MANAGER_ADDRESS)"
-execute_optional $SCRIPT_PATH/../deregister_service.sh data_explorers $PUBLIC_EXPERIMENT_MANAGER_ADDRESS
+execute_optional $SCRIPT_PATH/../deregister_service.sh experiment_managers $PUBLIC_EXPERIMENT_MANAGER_ADDRESS
