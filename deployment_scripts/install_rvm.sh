@@ -15,6 +15,9 @@ else
   [ -e $HOME/.rvm/scripts/rvm ] && execute source $HOME/.rvm/scripts/rvm || echo "No RVM in HOME"
   [ -e /usr/local/rvm/scripts/rvm ] && execute source /usr/local/rvm/scripts/rvm || echo "No RVM in /usr/local"
 
+  info "Install bundler"
+  execute gem install bundler
+
   info "Check if ruby is installed"
   execute ruby --version
 fi
