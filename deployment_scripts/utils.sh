@@ -11,6 +11,8 @@ export SCRIPT_PATH=$( cd $(dirname $0) ; pwd -P )
 [ -n "$SCALARM_ROOT" ] || export SCALARM_ROOT=$HOME
 
 [ -n "$PUBLIC_NGINX_ADDRESS" ] || export PUBLIC_NGINX_ADDRESS=localhost
+[ -n "$PUBLIC_HOST" ] || export PUBLIC_HOST=$(strip_address_to_host $PUBLIC_NGINX_ADDRESS)
+[ -n "$CLOUD_HOST" ] || export CLOUD_HOST=$PUBLIC_HOST
 
 # Default Information Service config
 [ -n "$INFORMATION_SERVICE_URL" ] || export INFORMATION_SERVICE_URL=$PUBLIC_NGINX_ADDRESS/information
@@ -49,6 +51,8 @@ should_be_set SECRET_KEY_BASE
 should_be_set GIT_BRANCH
 should_be_set RAILS_ENV
 should_be_set PUBLIC_NGINX_ADDRESS
+should_be_set PUBLIC_HOST
+should_be_set CLOUD_HOST
 
 
 ## Helper functions
@@ -95,6 +99,11 @@ execute_optional() {
 trim_string() {
   VAL=$1
   echo -e "${VAL}" | sed -e 's/^[[:space:]]*//'
+}
+
+strip_address_to_host() {
+  VAL=$1
+  echo "${VAL}" | cut -d ':' -f 1
 }
 
 [ -e $HOME/.rvm/scripts/rvm ] && execute source $HOME/.rvm/scripts/rvm
