@@ -11,3 +11,7 @@ create_sim_config() {
 }
 EOS
 }
+
+info "Generating config for SiM"
+execute cd $SCALARM_ROOT/scalarm_simulation_manager
+execute create_sim_config
