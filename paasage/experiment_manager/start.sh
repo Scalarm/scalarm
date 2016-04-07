@@ -16,3 +16,6 @@ execute ${SCRIPTS_ROOT}/deployment_scripts/experiment_manager/configure.sh
 
 info "Experiment Manager start"
 execute ${SCRIPTS_ROOT}/deployment_scripts/experiment_manager/start.sh
+
+info "Holding on console after start"
+execute tail -f /dev/null

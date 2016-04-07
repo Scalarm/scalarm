@@ -16,3 +16,6 @@ execute ${SCRIPTS_ROOT}/deployment_scripts/information_service/configure.sh
 
 info "Information Service start"
 execute ${SCRIPTS_ROOT}/deployment_scripts/information_service/start.sh
+
+info "Holding on console after start"
+execute tail -f /dev/null

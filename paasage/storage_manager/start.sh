@@ -16,3 +16,6 @@ execute ${SCRIPTS_ROOT}/deployment_scripts/storage_manager/configure.sh
 
 info "Storage Manager start"
 execute ${SCRIPTS_ROOT}/deployment_scripts/storage_manager/start.sh
+
+info "Holding console after start"
+execute tail -f /dev/null
