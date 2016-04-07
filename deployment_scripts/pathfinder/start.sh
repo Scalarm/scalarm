@@ -7,8 +7,8 @@ execute cd $SCALARM_ROOT/scalarm_experiment_supervisor
 info "Starting Pathfinder"
 execute rake service:start
 
-info "Wating few seconds for Pathfinder to settle down..."
-execute sleep 5
+info "Wating ${SCALARM_TEST_TIMEOUT} seconds for Pathfinder to settle down..."
+execute sleep ${SCALARM_TEST_TIMEOUT}
 
 info "Checking if Pathfinder is working"
 execute $SCRIPT_PATH/test.sh

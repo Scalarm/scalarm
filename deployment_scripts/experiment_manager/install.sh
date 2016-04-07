@@ -21,8 +21,9 @@ info "GSISSH installation - installing gsi-openssh-clients"
 execute sudo apt-get update
 execute sudo apt-get install -y gsi-openssh-clients libglobus-gssapi-gsi4
 
+# In Paasage, PLGrid certs are not required
 info "Installing PLGrid certificates (for gsissh)"
-execute $SCRIPT_PATH/../install_plgrid_certs.sh
+execute_optional $SCRIPT_PATH/../install_plgrid_certs.sh
 
 info "Installing Ruby from RVM"
 execute $SCRIPT_PATH/../install_rvm.sh

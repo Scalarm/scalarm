@@ -41,6 +41,9 @@ strip_address_to_host() {
 # Default RAILS_ENV to production
 [ -n "$RAILS_ENV" ] || export RAILS_ENV=production
 
+# Default time to wait for service test after start (seconds)
+[ -n "$SCALARM_TEST_TIMEOUT" ] || export SCALARM_TEST_TIMEOUT=180
+
 ## Exits script when the value is empty
 # $1 - a value that should be not empty
 should_be_set() {

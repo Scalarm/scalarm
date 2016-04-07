@@ -12,8 +12,8 @@ execute rake service:non_digested
 info "Starting Data Explorer"
 execute rake service:start
 
-info "Wating few seconds for Data Explorer to settle down..."
-execute sleep 5
+info "Wating ${SCALARM_TEST_TIMEOUT} seconds for Data Explorer to settle down..."
+execute sleep $SCALARM_TEST_TIMEOUT
 
 info "Checking if Data Explorer is working"
 execute $SCRIPT_PATH/test.sh
