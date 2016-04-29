@@ -13,4 +13,6 @@ else
 
   info "RVM first load"
   execute source /etc/profile.d/rvm.sh
+
+  execute eval "gem install bundler"
 fi
