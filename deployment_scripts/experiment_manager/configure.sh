@@ -8,6 +8,11 @@ production:
   information_service_url: "<%= ENV["INFORMATION_SERVICE_URL"] %>"
   information_service_user: "<%= ENV["INFORMATION_SERVICE_LOGIN"] %>"
   information_service_pass: "<%= ENV["INFORMATION_SERVICE_PASSWORD"] %>"
+  redis_port: 26389
+  redis_url: "redis://localhost:26389"
+  redis_workers: 1
+  sidekiq_username: "<%= ENV["INFORMATION_SERVICE_LOGIN"] %>"
+  sidekiq_password: "<%= ENV["INFORMATION_SERVICE_PASSWORD"] %>"
 EOS
 }
 
