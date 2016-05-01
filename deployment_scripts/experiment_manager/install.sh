@@ -6,7 +6,7 @@ export RAILS_ENV=production
 
 info "Packages installation"
 execute sudo apt-get update
-execute sudo apt-get install -y curl zip git sysstat r-base-core
+execute sudo apt-get install -y curl zip git sysstat r-base-core redis-server
 
 info "Go to SCALARM_ROOT: $SCALARM_ROOT"
 execute cd $SCALARM_ROOT
