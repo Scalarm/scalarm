@@ -97,4 +97,4 @@ trim_string() {
   echo -e "${VAL}" | sed -e 's/^[[:space:]]*//'
 }
 
-[ -e $HOME/.rvm/scripts/rvm ] && execute source $HOME/.rvm/scripts/rvm
+[ -e $HOME/.rvm/scripts/rvm ] && execute . $HOME/.rvm/scripts/rvm
