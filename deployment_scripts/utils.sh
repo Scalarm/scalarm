@@ -96,5 +96,3 @@ trim_string() {
   VAL=$1
   echo -e "${VAL}" | sed -e 's/^[[:space:]]*//'
 }
-
-[ -e $HOME/.rvm/scripts/rvm ] && execute . $HOME/.rvm/scripts/rvm
