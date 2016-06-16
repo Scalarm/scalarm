@@ -96,3 +96,19 @@ trim_string() {
   VAL=$1
   echo -e "${VAL}" | sed -e 's/^[[:space:]]*//'
 }
+
+load_rvm() {
+  if [ -a ~/.profile ]; then
+    source ~/.profile;
+  fi
+
+  if [ -a /etc/profile.d/rvm.sh ]; then
+    source /etc/profile.d/rvm.sh;
+  fi
+
+  if [ -a ~/.rvm/scripts/rvm ]; then    
+    source ~/.rvm/scripts/rvm;
+  fi
+}
+
+execute_optional load_rvm

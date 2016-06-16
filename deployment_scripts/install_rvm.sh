@@ -1,20 +1,6 @@
 #!/bin/bash
 source `dirname $0`/utils.sh
 
-load_rvm() {
-  if [ -a ~/.profile ]; then
-    source ~/.profile;
-  fi
-
-  if [ -a /etc/profile.d/rvm.sh ]; then
-    source /etc/profile.d/rvm.sh;
-  fi
-
-  if [ -a ~/.rvm/scripts/rvm ]; then    
-    source ~/.rvm/scripts/rvm;
-  fi
-}
-
 execute_optional load_rvm
 
 if ruby --version
