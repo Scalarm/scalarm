@@ -29,4 +29,4 @@ else
 	fi
 fi
 
-execute_optional sudo id -u www-data &>/dev/null || sudo useradd www-data
+execute_optional sudo useradd www-data
