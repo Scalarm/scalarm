@@ -8,16 +8,14 @@ export RAILS_ENV=production
 
 info "Packages installation"
 if [ -a /etc/redhat-release ]; then
-	execute sudo yum install -y curl git sysstat
+	execute sudo yum install -y curl git sysstat epel-release
 
 	info "Installing dependencies for supervisor: Sensitivity Analysis R"
 	execute sudo yum install -y R
 
 	info "Installing dependencies for supervisor: Sensitivity Analysis C#"
-	execute sudo yum install -y yum-utils
-	execute sudo rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
-	execute sudo yum-config-manager --add-repo http://download.mono-project.com/repo/centos/
-	execute sudo yum install -y mono-complete
+	execute sudo yum install -y yum-utils 
+	execute sudo yum install -y mono-core mono-devel
 
 	info "Installing dependencies for supervisor: Response Surface Method"
 	execute sudo yum install -y python scipy python-setuptools python-pip python-setuptools python-dev python-numpy python-scipy python-pandas python-statsmodels
