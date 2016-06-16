@@ -12,8 +12,17 @@ else
   execute eval "curl -sSL https://get.rvm.io | bash -s stable --ruby=2.3.1"
 
   info "RVM first load"
-  source /etc/profile.d/rvm.sh
-  source ~/.rvm/scripts/rvm
+  if [ -a ~/.profile ]; then
+    source ~/.profile;
+  fi
+
+  if [ -a /etc/profile.d/rvm.sh ]; then
+    source /etc/profile.d/rvm.sh;
+  fi
+
+  if [ -a ~/.rvm/scripts/rvm ]; then  	
+    source ~/.rvm/scripts/rvm;
+  fi
 
   execute eval "gem install bundler"
 fi

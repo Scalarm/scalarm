@@ -6,8 +6,14 @@ export REPO_BASE_URL='http://scalarm.com/repository/'
 export RAILS_ENV=production
 
 info "Packages installation"
-execute sudo apt-get update
-execute sudo apt-get install -y curl git
+if [ -a /etc/redhat-release ]; then
+	execute sudo yum install -y git curl libxml2 sqlite sqlite-devel
+else
+	if [ -a /etc/os-release ] && [ `cat /etc/os-release | grep ID=ubuntu | wc -l` == '1' ]; then
+		execute sudo apt-get update
+		execute sudo apt-get install -y curl git
+	fi	
+fi
 
 info "Installing Ruby from RVM"
 execute $SCRIPT_PATH/../install_rvm.sh

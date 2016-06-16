@@ -5,8 +5,15 @@ source `dirname $0`/../utils.sh
 export RAILS_ENV=production
 
 info "Packages installation"
-execute sudo apt-get update
-execute sudo apt-get install -y curl git sysstat r-base-core
+
+if [ -a /etc/redhat-release ]; then
+	execute sudo yum install -y curl git sysstat R
+else
+	if [ -a /etc/os-release ] && [ `cat /etc/os-release | grep ID=ubuntu | wc -l` == '1' ]; then
+		execute sudo apt-get update
+		execute sudo apt-get install -y curl git sysstat r-base-core
+	fi	
+fi
 
 info "Go to SCALARM_ROOT: $SCALARM_ROOT"
 execute cd $SCALARM_ROOT

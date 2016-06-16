@@ -20,6 +20,11 @@ tag: ScalarmStorageManager
 EOS
 }
 
+info "Increasing constraints for open files"
+execute sudo sysctl -w fs.file-max=100000
+execute sudo bash -c "echo \"fs.file-max = 100000\" >> /etc/sysctl.conf"
+execute sudo sysctl -p
+
 # constants
 export RAILS_ENV=production
 
