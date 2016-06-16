@@ -60,4 +60,5 @@ info "Checking out \"$GIT_BRANCH\" git branch"
 execute git checkout $GIT_BRANCH
 
 info "Installing gems"
+execute_optional load_rvm
 execute bundle install
