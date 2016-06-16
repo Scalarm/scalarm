@@ -5,7 +5,7 @@ info "Go to SCALARM_ROOT: $SCALARM_ROOT"
 execute cd $SCALARM_ROOT
 
 info "Checking www-data user"
-execute sudo id -u www-data &>/dev/null || sudo useradd www-data
+execute_optional sudo useradd www-data
 execute sudo id -u www-data &>/dev/null
 
 if nginx -v; then
