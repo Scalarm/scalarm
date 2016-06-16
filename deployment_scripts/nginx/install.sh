@@ -27,6 +27,6 @@ else
 			execute sudo apt-get install -y nginx
 		fi	
 	fi
-
-	execute_optional sudo id -u www-data &>/dev/null || sudo useradd www-data
 fi
+
+execute_optional sudo id -u www-data &>/dev/null || sudo useradd www-data
