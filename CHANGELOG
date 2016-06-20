@@ -1,0 +1,10 @@
+## [16.06] - 2016-06-20
+### Added - most important new features (in total: 6 new features or improvements, 8 bugs fixed)
+- [SCAL-795](https://jira.plgrid.pl/jira/browse/SCAL-795) - support for computer clusters with the PBS scheduler
+- [SCAL-1266](https://jira.plgrid.pl/jira/browse/SCAL-1266) - support for computer clusters with the SLURM scheduler
+- [SCAL-408](https://jira.plgrid.pl/jira/browse/SCAL-408) - creating new experiments based on historical ones
+- [SCAL-1265](https://jira.plgrid.pl/jira/browse/SCAL-1265) - button for reseting simulation state
+- [SCAL-157](https://jira.plgrid.pl/jira/browse/SCAL-157) - scripts for online Scalarm installation on ubuntu and centos
+- [SCAL-651](https://jira.plgrid.pl/jira/browse/SCAL-651) - bugfixing regression trees
+- [SCAL-219](https://jira.plgrid.pl/jira/browse/SCAL-219) - handling errors in design of experiments
+- updating Rails and mongodb driver versions to 4.2.6 and 2.2.5 respectively
