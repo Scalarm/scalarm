@@ -15,6 +15,7 @@ else
 		info "This is RHEL"
 		info "Adding epel yum repository"
 		execute sudo yum install -y epel-release
+		execute sudo cp $SCRIPT_PATH/nginx-scalarm/nginx.repo /etc/yum.repos.d/
 
 		info "Installing nginx"
 		execute sudo yum install -y nginx wget man curl zip
