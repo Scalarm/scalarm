@@ -10,5 +10,7 @@ execute cd $SCALARM_ROOT/scalarm_experiment_supervisor
 info "Stopping Pathfinder"
 execute_optional rake service:stop
 
+PUBLIC_PATHFINDER_ADDRESS=$PUBLIC_NGINX_ADDRESS/pathfinder
+
 info "Deregistering Pathfinder from Information Service (using public address: $PUBLIC_PATHFINDER_ADDRESS)"
 execute_optional $SCRIPT_PATH/../deregister_service.sh experiment_supervisors $PUBLIC_PATHFINDER_ADDRESS

@@ -10,5 +10,7 @@ execute cd $SCALARM_ROOT/scalarm_data_explorer
 info "Stopping Data Explorer"
 execute_optional rake service:stop
 
+PUBLIC_DATA_EXPLORER_ADDRESS=$PUBLIC_NGINX_ADDRESS/data_explorer
+
 info "Deregistering Data Explorer from Information Service (using public address: $PUBLIC_DATA_EXPLORER_ADDRESS)"
 execute_optional $SCRIPT_PATH/../deregister_service.sh data_explorers $PUBLIC_DATA_EXPLORER_ADDRESS
