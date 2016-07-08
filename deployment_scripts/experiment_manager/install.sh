@@ -12,7 +12,7 @@ if [ -a /etc/redhat-release ]; then
 	execute wget http://toolkit.globus.org/ftppub/gt6/installers/repo/globus-toolkit-repo-latest.noarch.rpm -O /tmp/globus-toolkit-repo-latest.noarch.rpm
 
 	info "GSISSH installation - installing Globus repo"
-	execute sudo rpm -ivh /tmp/globus-toolkit-repo-latest.noarch.rpm && rm /tmp/globus-toolkit-repo-latest.noarch.rpm
+	execute_optional sudo rpm -ivh /tmp/globus-toolkit-repo-latest.noarch.rpm && rm /tmp/globus-toolkit-repo-latest.noarch.rpm
 
 	info "GSISSH installation - installing gsi-openssh-clients"
 	execute sudo yum install -y gsi-openssh-clients
