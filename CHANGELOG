@@ -1,3 +1,14 @@
+## [16.07] - 2016-07-08
+### This is a bug fix release with 8 bugs fixed
+- [SCAL-292](https://jira.plgrid.pl/jira/browse/SCAL-292) - support for a new simulation manager monitoring case
+- [SCAL-362](https://jira.plgrid.pl/jira/browse/SCAL-362) - bugfixing support for collection sharding in MongoDB
+- [SCAL-764](https://jira.plgrid.pl/jira/browse/SCAL-764) - bugfixing support for collection sharding in MongoDB
+- [SCAL-1102](https://jira.plgrid.pl/jira/browse/SCAL-1102) - bugfixing SSH authentication methods for private servers
+- [SCAL-1251](https://jira.plgrid.pl/jira/browse/SCAL-1251) - bugfixing modal buttons in the standalone data explorer
+- [SCAL-1252](https://jira.plgrid.pl/jira/browse/SCAL-1252) - bugfixing panel displaying in the standalone data explorer
+- [SCAL-1253](https://jira.plgrid.pl/jira/browse/SCAL-1253) - bugfixing style rendering in the standalone data explorer
+- [SCAL-1267](https://jira.plgrid.pl/jira/browse/SCAL-1267) - bugfixing supervised experiment creation
+
 ## [16.06] - 2016-06-20
 ### Added - most important new features (in total: 6 new features or improvements, 8 bugs fixed)
 - [SCAL-795](https://jira.plgrid.pl/jira/browse/SCAL-795) - support for computer clusters with the PBS scheduler
