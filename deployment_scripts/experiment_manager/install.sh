@@ -6,7 +6,7 @@ export RAILS_ENV=production
 
 info "Packages installation"
 if [ -a /etc/redhat-release ]; then
-	execute sudo yum install -y git curl R zip sysstat redis golang wget
+	execute sudo yum install -y git curl R zip sysstat golang wget
 
 	info "GSISSH installation - getting Globus repo"
 	execute wget http://toolkit.globus.org/ftppub/gt6/installers/repo/globus-toolkit-repo-latest.noarch.rpm -O /tmp/globus-toolkit-repo-latest.noarch.rpm
@@ -19,7 +19,7 @@ if [ -a /etc/redhat-release ]; then
 else
 	if [ -a /etc/os-release ] && [ `cat /etc/os-release | grep ID=ubuntu | wc -l` == '1' ]; then
 		execute sudo apt-get update
-		execute sudo apt-get install -y curl zip git sysstat r-base-core redis-server
+		execute sudo apt-get install -y curl zip git sysstat r-base-core
 
 		info "GSISSH installation - getting Globus repo"
 		execute wget http://toolkit.globus.org/ftppub/gt6/installers/repo/globus-toolkit-repo_latest_all.deb -O /tmp/globus-toolkit-repo_latest_all.deb
@@ -30,8 +30,17 @@ else
 		info "GSISSH installation - installing gsi-openssh-clients"
 		execute sudo apt-get update
 		execute sudo apt-get install -y gsi-openssh-clients libglobus-gssapi-gsi4
-	fi	
+	fi
 fi
+
+info "Redis installation in $SCALARM_ROOT..."
+export REDIS_VERSION=redis-3.2.1
+execute cd $SCALARM_ROOT
+execute wget http://download.redis.io/releases/$REDIS_VERSION.tar.gz
+execute tar xzf $REDIS_VERSION.tar.gz
+execute cd $REDIS_VERSION
+execute make
+execute export $PATH=$SCALARM_ROOT/$REDIS_VERSION/src
 
 info "Go to SCALARM_ROOT: $SCALARM_ROOT"
 execute cd $SCALARM_ROOT
