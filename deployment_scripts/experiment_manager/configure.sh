@@ -31,7 +31,7 @@ EOS
 # constants
 export RAILS_ENV=production
 export REDIS_VERSION=redis-3.2.1
-export $PATH=$SCALARM_ROOT/$REDIS_VERSION/src
+export PATH=$SCALARM_ROOT/$REDIS_VERSION/src:$PATH
 
 info "Entering scalarm_experiment_manager dir"
 execute cd $SCALARM_ROOT/scalarm_experiment_manager
