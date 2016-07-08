@@ -46,7 +46,7 @@ info "Go to SCALARM_ROOT: $SCALARM_ROOT"
 execute cd $SCALARM_ROOT
 
 info "Installing PLGrid certificates (for gsissh)"
-execute $SCRIPT_PATH/../install_plgrid_certs.sh
+execute_optional $SCRIPT_PATH/../install_plgrid_certs.sh
 
 info "Installing Ruby from RVM"
 execute $SCRIPT_PATH/../install_rvm.sh
