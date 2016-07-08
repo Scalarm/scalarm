@@ -40,7 +40,7 @@ execute wget http://download.redis.io/releases/$REDIS_VERSION.tar.gz
 execute tar xzf $REDIS_VERSION.tar.gz
 execute cd $REDIS_VERSION
 execute make
-execute export $PATH=$SCALARM_ROOT/$REDIS_VERSION/src
+execute export PATH=$SCALARM_ROOT/$REDIS_VERSION/src
 
 info "Go to SCALARM_ROOT: $SCALARM_ROOT"
 execute cd $SCALARM_ROOT
