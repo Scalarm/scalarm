@@ -26,9 +26,9 @@ export SCRIPT_PATH=$( cd $(dirname $0) ; pwd -P )
 # Default RAILS_ENV to production
 [ -n "$RAILS_ENV" ] || export RAILS_ENV=production
 
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US:en"
-export LC_ALL="en_US.UTF-8"
+[ -n "$LANG" ] || export LANG="en_US.UTF-8"
+[ -n "$LANGUAGE" ] || export LANGUAGE="en_US:en"
+[ -n "$LC_ALL" ] || export LC_ALL="en_US.UTF-8"
 
 ## Exits script when the value is empty
 # $1 - a value that should be not empty
