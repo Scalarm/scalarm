@@ -1,6 +1,8 @@
 #!/bin/bash
 source `dirname $0`/../utils.sh
 
+export PUBLIC_DATA_EXPLORER_ADDRESS=$PUBLIC_NGINX_ADDRESS/data_explorer
+
 create_secrets_yml() {
   cat >config/secrets.yml <<EOS
 production:
@@ -8,14 +10,14 @@ production:
   information_service_url: "<%= ENV["INFORMATION_SERVICE_URL"] %>"
   information_service_user: "<%= ENV["INFORMATION_SERVICE_LOGIN"] %>"
   information_service_pass: "<%= ENV["INFORMATION_SERVICE_PASSWORD"] %>"
-  
+
   base_url: 'https://$PUBLIC_DATA_EXPLORER_ADDRESS'
-  
+
   cors:
     allow_all_origins: false
     allowed_origins:
       - 'https://$PUBLIC_DATA_EXPLORER_ADDRESS'
-      - 'https://$PUBLIC_EXPERIMENT_MANAGER_ADDRESS'
+      - 'https://$PUBLIC_NGINX_ADDRESS'
 EOS
 }
 
