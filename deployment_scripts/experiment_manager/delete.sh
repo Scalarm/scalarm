@@ -6,3 +6,5 @@ export REDIS_VERSION=redis-3.2.1
 info "Removing Experiment Manager dir"
 execute rm -rf $SCALARM_ROOT/scalarm_experiment_manager
 execute rm -rf $SCALARM_ROOT/$REDIS_VERSION
+execute rm $SCALARM_ROOT/$REDIS_VERSION.tar.gz
+execute rm $SCALARM_ROOT/plg-certs.rpm
