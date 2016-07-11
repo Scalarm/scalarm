@@ -24,3 +24,9 @@ execute storage_manager/start.sh
 execute experiment_manager/start.sh
 execute data_explorer/start.sh
 execute pathfinder/start.sh
+
+if [ -f /etc/rc.d/rc.local ]; then
+  if [ `cat /etc/rc.d/rc.local | grep deployment_scripts/nginx/start.sh | wc -l` == "0" ]; then
+    cat ../util_scripts/init.sh >> /etc/rc.d/rc.local
+  fi
+fi
