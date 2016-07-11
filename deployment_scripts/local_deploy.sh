@@ -32,15 +32,12 @@ if [ -f /etc/rc.d/rc.local ]; then
 
 # Start the Scalarm platform
 
-# 1. stop iptables
-/etc/init.d/iptables stop
-
-# 2. add $PUBLIC_NGINX_ADDRESS to hostname
+# 1. add $PUBLIC_NGINX_ADDRESS to hostname
 if [ `cat /etc/hosts | grep $PUBLIC_NGINX_ADDRESS | wc -l` == "0" ]; then
   echo "127.0.0.1  $PUBLIC_NGINX_ADDRESS" >> /etc/hosts
 fi
 
-# 3. start scalarm if available
+# 2. start scalarm if available
 SCALARM_DIR=$HOME/.scalarm/scalarm-master
 if [ -f \$SCALARM_DIR/start.sh ]; then
   echo "Starting Scalarm..."
