@@ -8,7 +8,8 @@
 export SCRIPT_PATH=$( cd $(dirname $0) ; pwd -P )
 
 # If SCALARM_ROOT not set, use HOME dir
-[ -n "$SCALARM_ROOT" ] || export SCALARM_ROOT=$HOME
+[ -n "$SCALARM_ROOT" ] || export SCALARM_ROOT=$HOME/scalarm
+mkdir -p $SCALARM_ROOT
 
 [ -n "$PUBLIC_NGINX_ADDRESS" ] || export PUBLIC_NGINX_ADDRESS=localhost
 
@@ -106,7 +107,7 @@ load_rvm() {
     source /etc/profile.d/rvm.sh;
   fi
 
-  if [ -a ~/.rvm/scripts/rvm ]; then    
+  if [ -a ~/.rvm/scripts/rvm ]; then
     source ~/.rvm/scripts/rvm;
   fi
 }
