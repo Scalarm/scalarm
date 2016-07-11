@@ -25,8 +25,32 @@ execute experiment_manager/start.sh
 execute data_explorer/start.sh
 execute pathfinder/start.sh
 
+# Setting up initialization script
 if [ -f /etc/rc.d/rc.local ]; then
   if [ `cat /etc/rc.d/rc.local | grep deployment_scripts/nginx/start.sh | wc -l` == "0" ]; then
-    cat ../util_scripts/init.sh >> /etc/rc.d/rc.local
+    cat &>/etc/rc.d/rc.local <<EOS
+
+# Start the Scalarm platform
+
+# 1. stop iptables
+/etc/init.d/iptables stop
+
+# 2. add $PUBLIC_NGINX_ADDRESS to hostname
+if [ `cat /etc/hosts | grep $PUBLIC_NGINX_ADDRESS | wc -l` == "0" ]; then
+  echo "127.0.0.1  $PUBLIC_NGINX_ADDRESS" >> /etc/hosts
+fi
+
+# 3. start scalarm if available
+SCALARM_DIR=$HOME/.scalarm/scalarm-master
+if [ -f \$SCALARM_DIR/start.sh ]; then
+  echo "Starting Scalarm..."
+  PUBLIC_NGINX_ADDRESS=$PUBLIC_NGINX_ADDRESS
+  HOME=/home/tutorial sh \$SCALARM_DIR/deployment_scripts/nginx/start.sh
+  su tutorial -l -c "sh \$SCALARM_DIR/start.sh"
+else
+  echo "Scalarm not found"
+fi
+EOS
+
   fi
 fi
