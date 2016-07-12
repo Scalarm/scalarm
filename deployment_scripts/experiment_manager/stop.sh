@@ -3,6 +3,8 @@ source `dirname $0`/../utils.sh
 
 # constants
 export RAILS_ENV=production
+export REDIS_VERSION=redis-3.2.1
+export PATH=$SCALARM_ROOT/$REDIS_VERSION/src:$PATH
 
 info "Entering Experiment Manager dir"
 execute cd $SCALARM_ROOT/scalarm_experiment_manager
