@@ -33,7 +33,7 @@ if [ -f /etc/rc.d/rc.local ]; then
 # Start the Scalarm platform
 
 # 1. add $PUBLIC_NGINX_ADDRESS to hostname
-if [ `cat /etc/hosts | grep $PUBLIC_NGINX_ADDRESS | wc -l` == "0" ]; then
+if [ \`cat /etc/hosts | grep $PUBLIC_NGINX_ADDRESS | wc -l\` == "0" ]; then
   echo "127.0.0.1  $PUBLIC_NGINX_ADDRESS" >> /etc/hosts
 fi
 
