@@ -49,6 +49,6 @@ else
 fi
 EOS
 
-    sudo cat /tmp/scalarm.rc.local >> /etc/rc.d/rc.local
+    sudo bash -c 'cat /tmp/scalarm.rc.local &> /etc/rc.d/rc.local'
   fi
 fi
