@@ -28,7 +28,7 @@ execute pathfinder/start.sh
 # Setting up initialization script
 if [ -f /etc/rc.d/rc.local ]; then
   if [ `cat /etc/rc.d/rc.local | grep deployment_scripts/nginx/start.sh | wc -l` == "0" ]; then
-    cat &>/tmp/scalarm.rc.local <<EOS
+    cat &>>/tmp/scalarm.rc.local <<EOS
 
 # Start the Scalarm platform
 
