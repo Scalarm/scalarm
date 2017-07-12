@@ -22,7 +22,7 @@ else
 		execute sudo apt-get install -y curl zip git sysstat r-base-core
 
 		info "GSISSH installation - getting Globus repo"
-		execute wget http://toolkit.globus.org/ftppub/gt6/installers/repo/globus-toolkit-repo_latest_all.deb -O /tmp/globus-toolkit-repo_latest_all.deb
+		execute wget http://downloads.globus.org/toolkit/gt6/stable/installers/repo/deb/globus-toolkit-repo_latest_all.deb-O /tmp/globus-toolkit-repo_latest_all.deb
 
 		info "GSISSH installation - installing Globus repo"
 		execute sudo dpkg -i /tmp/globus-toolkit-repo_latest_all.deb && rm /tmp/globus-toolkit-repo_latest_all.deb
